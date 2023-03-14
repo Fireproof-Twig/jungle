@@ -14,4 +14,9 @@ describe("jungle app", () => {
   it("There is 2 products on the page", () => {
     cy.get(".products article").should("have.length", 2);
   });
+
+  it("lets you visit the selected product detail page", () => {
+    cy.get(".products article").first().click();
+    cy.url().should("include", "/products/2");
+  });
 });
